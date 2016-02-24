@@ -80,10 +80,9 @@
 <!-- Publish project button -->
 <a href="https://confluence.mail.ru/pages/viewpage.action?pageId=91198645" id="mailru-publish-project" target="_blank">Как опубликовать свой проект?</a>
 <script type="text/javascript">
-    (function (d) {
-        if (__PH.isCorp())
-            d.getElementById('mailru-publish-project').style.display = 'inline-block';
-    })(document);
+    $(document).ready(function() {
+        __PH.isCorp() && $('#mailru-publish-project').css('display', 'inline-block');
+    });
 </script>
 <!-- //Publish project button -->
 <div id="mailru-wrapper">
