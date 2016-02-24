@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html;charset=utf-8">
+  <meta name="MobileOptimized" content="width">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" type="text/css" href="{{base_url}}/css/gollum.css" media="all">
+  <link rel="stylesheet" type="text/css" href="{{base_url}}/css/editor.css" media="all">
+  <link rel="stylesheet" type="text/css" href="{{base_url}}/css/dialog.css" media="all">
+  <link rel="stylesheet" type="text/css" href="{{base_url}}/css/template.css" media="all">
+  <link rel="stylesheet" type="text/css" href="{{base_url}}/css/print.css" media="print">
+  {{#css}}<link rel="stylesheet" type="text/css" href="{{custom_path}}/custom.css" media="all">{{/css}}
+  {{#noindex}}<meta name="robots" content="noindex, nofollow" />{{/noindex}}
+
+  <!--[if IE 7]>
+  <link rel="stylesheet" type="text/css" href="{{base_url}}/css/ie7.css" media="all">
+  <![endif]-->
+
+  <script>
+      var baseUrl = '{{base_url}}';
+      var uploadDest   = '{{upload_dest}}';
+      {{#page}}
+      var pageFullPath = '{{url_path_display}}';
+      {{/page}}
+  </script>
+  <script type="text/javascript" src="{{base_url}}/javascript/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="{{base_url}}/javascript/mousetrap.min.js"></script>
+  <script type="text/javascript" src="{{base_url}}/javascript/gollum.js"></script>
+  <script type="text/javascript" src="{{base_url}}/javascript/gollum.dialog.js"></script>
+  <script type="text/javascript" src="{{base_url}}/javascript/gollum.placeholder.js"></script>
+  <script type="text/javascript" src="{{base_url}}/javascript/editor/gollum.editor.js"></script>
+  {{#use_identicon}}
+  <script type="text/javascript" src="{{base_url}}/javascript/identicon_canvas.js"></script>
+  {{/use_identicon}}
+  {{#mathjax}}
+  {{^mathjax_config}}
+  <script type="text/javascript">
+  window.MathJax = {
+    tex2jax: {
+      inlineMath:  [ ['$','$'], ['\\(','\\)'] ],
+      displayMath: [ ['$$','$$'], ['\\[','\\]'] ],
+      processEscapes: true
+    },
+    TeX: { extensions: ["autoload-all.js"] }
+  };
+  </script>
+  {{/mathjax_config}}
+  {{#mathjax_config}}
+  <script type="text/javascript" src="{{base_url}}/{{mathjax_config}}"></script>
+  {{/mathjax_config}}
+  <script>(function(d,j){
+  j = d.createElement('script');
+  j.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+  (d.head || d.getElementsByTagName('head')[0]).appendChild(j);
+  }(document));
+  </script>{{/mathjax}}
+  {{#js}}<script type="text/javascript" src="{{custom_path}}/custom.js"></script>{{/js}}
+
+  <title>{{title}}</title>
+  <link rel="shortcut icon" type="image/x-icon" href="{{base_url}}/favicon.ico">
+</head>
+<body>
+<!-- Rating@Mail.ru counter -->
+<script type="text/javascript">
+    var _tmr = window._tmr || (window._tmr = []);
+    _tmr.push({id: "2711058", type: "pageView", start: (new Date()).getTime()});
+    (function (d, w, id) {
+        if (d.getElementById(id)) return;
+        var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+        ts.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//top-fwz1.mail.ru/js/code.js";
+        var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+        if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+    })(document, window, "topmailru-code");
+</script><noscript><div style="position:absolute;left:-10000px;">
+    <img src="//top-fwz1.mail.ru/counter?id=2711058;js=na" style="border:0;" height="1" width="1" alt="Рейтинг@Mail.ru" />
+</div></noscript>
+<!-- //Rating@Mail.ru counter -->
+
+<!-- Publish project button -->
+<a href="https://confluence.mail.ru/pages/viewpage.action?pageId=91198645" id="mailru-publish-project" target="_blank">Как опубликовать свой проект?</a>
+<script type="text/javascript">
+    (function (d) {
+        if (__PH.isCorp())
+            d.getElementById('mailru-publish-project').style.display = 'inline-block';
+    })(document);
+</script>
+<!-- //Publish project button -->
+<div id="mailru-wrapper">
+    {{>header}}
+
+    {{{yield}}}
+
+    {{>footer}}
+</div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<div id="mailru-content" class="results mailru-container">
+    <div id="wiki-body" class="gollum-markdown-content">
+        <div class="markdown-body">
+            <h1>Результаты поиска: <strong>{{query}}</strong></h1>
+            {{#has_results}}
+                <ul>
+                    {{#results}}
+                        <li>
+                            <a href="{{base_url}}/{{name}}">{{name}}</a>
+                            <span class="count">({{count}} совпадений)</span>
+                        </li>
+                    {{/results}}
+                </ul>
+            {{/has_results}}
+            {{#no_results}}
+                <p id="no-results">По данному запросу ничего не найдено.</p>
+            {{/no_results}}
+        </div>
+    </div>
+</div>
