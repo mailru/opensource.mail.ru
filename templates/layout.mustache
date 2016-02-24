@@ -77,6 +77,13 @@
 </div></noscript>
 <!-- //Rating@Mail.ru counter -->
 
+<div id="mailru-wrapper">
+    {{>header}}
+
+    {{{yield}}}
+
+    {{>footer}}
+</div>
 <!-- Publish project button -->
 <a href="https://confluence.mail.ru/pages/viewpage.action?pageId=91198645" id="mailru-publish-project" target="_blank">Как опубликовать свой проект?</a>
 <script type="text/javascript">
@@ -85,12 +92,5 @@
     });
 </script>
 <!-- //Publish project button -->
-<div id="mailru-wrapper">
-    {{>header}}
-
-    {{{yield}}}
-
-    {{>footer}}
-</div>
 </body>
 </html>
